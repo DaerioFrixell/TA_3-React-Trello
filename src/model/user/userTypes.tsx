@@ -1,5 +1,5 @@
 export type UserState = {
-  user: any[];
+  users: any[];
   loading: boolean;
   error: null | string;
 }
