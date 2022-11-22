@@ -1,15 +1,16 @@
 import { useEffect } from 'react'
 import { useDispatch } from "react-redux"
+import { useAction } from '../../hooks/useAction'
 import { useTypedSelector } from "../../hooks/useTypedSelector"
 import { fetchUsers } from '../../model/user/userAction'
 import { User } from '../../model/user/userTypes'
 
 export const UserList = () => {
   const { users, loading, error } = useTypedSelector(state => state.user)
-  const dispatch = useDispatch()
+  const { fetchUsers } = useAction()
 
   useEffect(() => {
-    dispatch(fetchUsers())
+    fetchUsers()
   }, [])
 
   if (loading) {

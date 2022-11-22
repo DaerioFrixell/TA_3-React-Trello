@@ -3,8 +3,6 @@ import { Dispatch } from "redux"
 import axios from "axios"
 import type { } from 'redux-thunk/extend-redux';
 
-
-
 export const fetchUsers = () => {
   return async (dispatch: Dispatch<UserAction>) => {
     try {
