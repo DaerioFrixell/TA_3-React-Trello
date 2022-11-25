@@ -1,0 +1,25 @@
+.project-item {
+  border: 3px solid black;
+  width: 30vw;
+  height: 30vh;
+  margin: 1rem;
+
+  &-title {
+    font-size: 150%;
+    text-align: center;
+    padding: 6vh 0;
+
+    &:hover {
+      color: red;
+    }
+
+    &:active {
+      color: blue;
+    }
+  }
+}
+
+.project-item-link {
+  text-decoration: none;
+  color: inherit;
+}

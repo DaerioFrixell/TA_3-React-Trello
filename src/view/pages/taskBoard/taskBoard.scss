@@ -1,0 +1,27 @@
+.task-board {
+  display: flex;
+  margin: 1rem;
+
+  &__board {
+    width: 15vw;
+    height: 40vh;
+    border: 2px solid black;
+    margin: 0 5rem;
+
+    &-title {
+      text-align: center;
+    }
+
+    &__task {
+      border: 1px solid teal;
+      margin: 1rem 0;
+    }
+  }
+}
+
+
+
+p {
+  margin: 0;
+  padding: 0;
+}
