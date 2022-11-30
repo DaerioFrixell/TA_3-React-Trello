@@ -1,0 +1,16 @@
+.task-item {
+  padding: .5rem;
+  border: 2px solid teal;
+  border-radius: 15px;
+  width: 90%;
+
+  margin: 1rem auto;
+
+  &-title {
+    font-size: 1.8rem;
+  }
+
+  &-description {
+    font-size: 1.5rem;
+  }
+}

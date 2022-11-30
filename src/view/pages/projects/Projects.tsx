@@ -1,4 +1,6 @@
 import { useState } from "react"
+import useModal from "../../../hooks/useModal"
+import { Modal } from "../../components/modal/Modal"
 import { ProjectItem } from "./projectItem/ProjectItem"
 import "./projects.scss"
 
@@ -9,6 +11,7 @@ import "./projects.scss"
 
 
 export const Projects: React.FC = () => {
+  const { isOpen, toggle } = useModal();
   const [ar, setAr] = useState([
     {
       id: 1,
@@ -21,8 +24,10 @@ export const Projects: React.FC = () => {
   ])
 
   let fakeId = 0;
+
   const create = (title: string = "newProj"): void => {
-    setAr([...ar, { id: fakeId++, title: `${title}` }])
+    setAr([...ar, { id: ++fakeId, title: `${title}` }])
+    toggle()
   }
 
   const projects = ar.map(proj => <ProjectItem
@@ -33,12 +38,21 @@ export const Projects: React.FC = () => {
 
   return (
     <div className="projects">
-      {projects}
-      <div className="project-item">
-        <button
-          className="projects-button"
-          onClick={() => create()}>+ create your project
-        </button>
+      <h1 className="title">Выберете проект</h1>
+      <Modal
+        isOpen={isOpen}
+        toggle={toggle}
+        create={create} />
+
+      <div className="projects__all-project">
+        {projects}
+        <div className="project-item">
+          <button
+            className="projects__all-project-button"
+            onClick={() => toggle()}>+ create your project
+            {/* onClick={() => create()}>+ create your project */}
+          </button>
+        </div>
       </div>
     </div>
   )

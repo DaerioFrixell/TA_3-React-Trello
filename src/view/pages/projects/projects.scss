@@ -1,12 +1,28 @@
+@import '../../styles/colors.scss';
+
 .projects {
-  display: flex;
+  &__all-project {
+    display: flex;
+    flex-wrap: wrap;
 
-  &-button {
-    width: 80%;
-    margin: 30% 10%;
-    color: black;
-    border: none;
-    font-size: 2rem;
+    &-button {
+      width: 80%;
+      height: 5vh;
+      margin: 10vh 3vw;
+      color: black;
+      border: none;
+      font-size: 2rem;
+      background-color: white;
+      transition: background-color, .3s;
+
+      &:hover {
+        background-color: $hover;
+      }
+
+      &:active {
+        background-color: $active;
+      }
+    }
+
   }
-
 }

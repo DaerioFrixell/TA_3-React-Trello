@@ -1,7 +1,9 @@
+@import '../../../styles/colors.scss';
+
 .project-item {
   border: 3px solid black;
-  width: 30vw;
-  height: 30vh;
+  width: 30%;
+  height: 25vh;
   margin: 1rem;
 
   &-title {
@@ -10,11 +12,11 @@
     padding: 6vh 0;
 
     &:hover {
-      color: red;
+      color: $hover;
     }
 
     &:active {
-      color: blue;
+      color: $active ;
     }
   }
 }

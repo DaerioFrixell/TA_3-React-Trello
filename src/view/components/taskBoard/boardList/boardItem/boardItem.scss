@@ -1,0 +1,10 @@
+.board-item {
+  width: 95%;
+  margin: auto;
+  list-style: none;
+
+  &-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}

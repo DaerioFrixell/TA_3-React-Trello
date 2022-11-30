@@ -1,0 +1,25 @@
+.modal-wrapper {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.744);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal {
+  position: absolute;
+  display: grid;
+  grid-template-rows: 10rem 5rem;
+  background-color: white;
+  border-radius: 20px;
+  left: 12.5%;
+  top: 12.5%;
+  width: 75vw;
+  height: 75vh;
+}
+
+.mod-input {
+  width: 50%;
+  margin: auto;
+}
