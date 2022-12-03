@@ -1,16 +1,81 @@
+@import '../../../../../styles/colors.scss';
+
 .task-item {
+  display: flex;
   padding: .5rem;
   border: 2px solid teal;
   border-radius: 15px;
   width: 90%;
-
   margin: 1rem auto;
+
+  &:hover {
+    border: 2px solid $hover;
+  }
 
   &-title {
     font-size: 1.8rem;
+
+    &:hover {
+      color: $hover;
+    }
+
+    &:active {
+      color: $active;
+    }
+  }
+
+  &-number {
+    margin: auto .5rem;
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    border: 1px solid rgb(168, 165, 165);
+    border-radius: 50%;
+  }
+}
+
+.modal-ti {
+  height: inherit;
+  width: 72vw;
+  margin: auto;
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(2, 33.33%) repeat(2, 16.66%);
+    height: 8vh;
+    text-align: center;
+
+    &-createdata {
+      font-size: 1.5rem;
+      margin: auto;
+    }
+
+    &-title {
+      font-weight: bold;
+      font-size: 3rem;
+      margin: auto;
+    }
+
+    &-status {
+      font-size: 1.5rem;
+      margin: auto;
+    }
+
+    &-priority {
+      font-size: 1.5rem;
+      margin: auto;
+    }
   }
 
   &-description {
-    font-size: 1.5rem;
+    margin-top: 5rem;
+    font-size: 1.8rem;
   }
+
+  &-duaring {
+    position: absolute;
+    bottom: 15px;
+  }
+
 }

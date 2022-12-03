@@ -1,18 +1,12 @@
 .task-board {
   display: grid;
-  grid-template-rows: 12vh 78vh;
+  grid-template-rows: 12vh 8vh 80vh;
+  width: 80vw;
+  margin: auto;
 
   &-link {
     text-decoration: none;
     color: inherit;
     text-align: center;
-  }
-
-  &__board {
-    width: 15vw;
-    height: 40vh;
-    border: 2px solid black;
-    margin: 0 5rem;
-
   }
 }

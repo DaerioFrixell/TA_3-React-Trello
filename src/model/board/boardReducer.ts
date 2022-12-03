@@ -7,48 +7,35 @@ const initialState = {
     tasks: [
       {
         id: 1,
-        title: "tit queue 1",
-        description: "desc queue 1"
+        numberTask: 1,
+        title: "Queue title 1",
+        description: "Queue descr 1",
+        createDate: new Date(),
+        duaringTime: "duaringTime",
+        closeTime: "closeTime",
+        priority: "low",
+        files: "no files",
+        status: "Queue",
+        comment: "Queue comm 1",
+        subTasks: "Queue subComm 1"
       },
-      {
-        id: 2,
-        title: "tit queue 2",
-        description: "desc queue 2"
-      }]
+    ]
   },
   {
     id: 2,
     title: 'Development',
-    tasks: [
-      {
-        id: 5,
-        title: "tit Dev 5",
-        description: "desc Dev 5"
-      }]
+    tasks: []
   },
   {
     id: 3,
     title: 'Done',
-    tasks: [
-      {
-        id: 9,
-        title: "tit Done 9",
-        description: "desc Done 9"
-      },
-      {
-        id: 10,
-        title: "tit Done 10",
-        description: "desc Done 10"
-      },
-    ]
+    tasks: []
   }],
   loading: false,
   error: null
 }
 
-export const boardReducer = (
-  state = initialState,
-  action: BoardAction): BoardState => {
+export const boardReducer = (state = initialState, action: BoardAction): BoardState => {
   switch (action.type) {
     case BoardActionType.FETCH_BOARD:
       return { loading: true, error: null, boards: [] }
@@ -59,7 +46,7 @@ export const boardReducer = (
     case BoardActionType.FETCH_BOARD_ERROR:
       return { loading: false, error: action.payload, boards: [] }
 
-    case BoardActionType.ADD_BOARD:
+    case BoardActionType.ADD_TASK:
       return { loading: false, error: null, boards: [] }
 
     case BoardActionType.REMOVE_BOARD:
@@ -69,3 +56,21 @@ export const boardReducer = (
       return state
   }
 }
+
+
+
+// еще один объект руками написанный, если нужно для тестов
+// {
+//   id: 3,
+//   numberTask: 3,
+//   title: "Done title 3",
+//   description: "Done descr 3",
+//   createDate: "createDate",
+//   duaringTime: "duaringTime",
+//   closeTime: "closeTime",
+//   priority: "low",
+//   files: "no files",
+//   status: "Done",
+//   comment: "Done comm 3",
+//   subTasks: "Done subComm 3"
+// },

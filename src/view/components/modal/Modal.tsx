@@ -1,22 +1,20 @@
-
 import { ModalType } from "../../../model/modal/modalType"
 import "./modal.scss"
 
-export const Modal = (props: ModalType) => {
+type AsdType = {
+  create: () => void
+} & ModalType
+
+export const Modal: React.FC<AsdType> = ({ create, toggle, isOpen, ...props }) => {
   return (
     <>
-      {props.isOpen && (<div
-        onClick={props.toggle}
-        className="modal-wrapper"
-      >
-        <div
-          className="modal"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <input className="mod-input" type="text" placeholder="title" />
-          <button className="mod-but" onClick={() => props.create()}>create</button>
+      {isOpen && (
+        <div onClick={toggle} className="modal-wrapper">
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            {props.children}
+          </div>
         </div>
-      </div>)}
+      )}
     </>
   )
 }

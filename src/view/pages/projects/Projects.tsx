@@ -24,7 +24,6 @@ export const Projects: React.FC = () => {
   ])
 
   let fakeId = 0;
-
   const create = (title: string = "newProj"): void => {
     setAr([...ar, { id: ++fakeId, title: `${title}` }])
     toggle()
@@ -39,10 +38,11 @@ export const Projects: React.FC = () => {
   return (
     <div className="projects">
       <h1 className="title">Выберете проект</h1>
-      <Modal
-        isOpen={isOpen}
-        toggle={toggle}
-        create={create} />
+
+      <Modal isOpen={isOpen} toggle={toggle} create={create} >
+        <input className="mod-input" type="text" placeholder="title" />
+        <button className="mod-but" onClick={() => create()}>create</button>
+      </Modal>
 
       <div className="projects__all-project">
         {projects}
@@ -50,7 +50,6 @@ export const Projects: React.FC = () => {
           <button
             className="projects__all-project-button"
             onClick={() => toggle()}>+ create your project
-            {/* onClick={() => create()}>+ create your project */}
           </button>
         </div>
       </div>

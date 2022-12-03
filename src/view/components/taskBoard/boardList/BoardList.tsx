@@ -1,6 +1,5 @@
 import { useTypedSelector } from "../../../../hooks/useTypedSelector"
 import { Board } from "../../../../model/board/boardTypes"
-// import { TaskList } from "../taskList/TaskList"
 import { BoardItem } from "./boardItem/BoardItem"
 import "./boardList.scss"
 
@@ -10,8 +9,10 @@ export const BoardList: React.FC = () => {
     <div
       className="bl__board"
       key={board.id} >
-      <BoardItem id={board.id} title={board.title} tasks={board.tasks} />
-      {/* <TaskList /> */}
+      <BoardItem
+        id={board.id}
+        title={board.title}
+        tasks={board.tasks} />
     </div >
   ))
 
