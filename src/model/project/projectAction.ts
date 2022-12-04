@@ -1,7 +1,7 @@
-import { ProjActionType, projType } from "./projectTypes"
+import { ProjActionType, ProjType } from "./projectTypes"
 
 
-export const addProjectAction = (proj: projType) => {
+export const addProjectAction = (proj: ProjType) => {
   return {
     type: ProjActionType.ADD_PROJECT,
     payload: proj

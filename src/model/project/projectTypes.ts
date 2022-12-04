@@ -1,6 +1,10 @@
-export type projType = {
+export type ProjType = {
   id: number,
   title: string
+}
+
+export type InitStateType = {
+  project: Array<ProjType>
 }
 
 export enum ProjActionType {
@@ -14,4 +18,3 @@ export type AddProjActionType = {
 
 export type ProjAction =
   AddProjActionType
-  

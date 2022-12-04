@@ -7,27 +7,29 @@ import "./boardItem.scss"
 
 export const BoardItem: React.FC<Board> = ({ id, tasks, title }) => {
   const [allTasks, setAllTasks] = React.useState(tasks)
-  const viewAllTasks = allTasks.map((t) =>
-    <Reorder.Item
-      value={t}
-      key={t.id}
-      initial={{}}
-      animate={{}}
-      exit={{}}
-    >
-      <TaskItem
+  const viewAllTasks = (allTasks.length)
+    ? allTasks.map((t) =>
+      <Reorder.Item
+        value={t}
         key={t.id}
-        id={t.id}
-        numberTask={t.numberTask}
-        title={t.title}
-        description={t.description}
-        createDate={t.createDate}
-        priority={t.priority}
-        status={t.status}
-        comment={t.comment}
-        subTasks={t.subTasks}
-      />
-    </Reorder.Item>)
+        initial={{}}
+        animate={{}}
+        exit={{}}
+      >
+        <TaskItem
+          key={t.id}
+          id={t.id}
+          numberTask={t.numberTask}
+          title={t.title}
+          description={t.description}
+          createDate={t.createDate}
+          priority={t.priority}
+          status={t.status}
+          comment={t.comment}
+          subTasks={t.subTasks}
+        />
+      </Reorder.Item>)
+    : <p>no tasks</p>
 
   return (
     <Reorder.Group as="div"

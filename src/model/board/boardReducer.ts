@@ -5,20 +5,20 @@ const initialState = {
     id: 1,
     title: 'Queue',
     tasks: [
-      {
-        id: 1,
-        numberTask: 1,
-        title: "Queue title 1",
-        description: "Queue descr 1",
-        createDate: new Date(),
-        duaringTime: "duaringTime",
-        closeTime: "closeTime",
-        priority: "low",
-        files: "no files",
-        status: "Queue",
-        comment: "Queue comm 1",
-        subTasks: "Queue subComm 1"
-      },
+      // {
+      //   id: 1,
+      //   numberTask: 1,
+      //   title: "Queue title 1",
+      //   description: "Queue descr 1",
+      //   createDate: new Date(),
+      //   duaringTime: "duaringTime",
+      //   closeTime: "closeTime",
+      //   priority: "low",
+      //   files: "no files",
+      //   status: "Queue",
+      //   comment: "Queue comm 1",
+      //   subTasks: "Queue subComm 1"
+      // },
     ]
   },
   {
