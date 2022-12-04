@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useAction } from "../../../hooks/useAction"
 import useModal from "../../../hooks/useModal"
+import { useTypedSelector } from "../../../hooks/useTypedSelector"
 import { Modal } from "../../components/modal/Modal"
 import { ProjectItem } from "./projectItem/ProjectItem"
 import "./projects.scss"
@@ -9,31 +10,23 @@ import "./projects.scss"
 //   title: string
 // }
 
-
 export const Projects: React.FC = () => {
   const { isOpen, toggle } = useModal();
-  const [ar, setAr] = useState([
-    {
-      id: 1,
-      title: 'proj'
-    },
-    {
-      id: 2,
-      title: 'proj'
-    }
-  ])
+  const { project } = useTypedSelector(state => state.project)
+  const { addProjectAction } = useAction()
+  let Id = 0;
 
-  let fakeId = 0;
+  const projects = (project.length)
+    ? project.map(proj => <ProjectItem
+      key={proj.id}
+      num={++Id}
+      title={proj.title} />)
+    : <p>создайте проект</p>
+
   const create = (title: string = "newProj"): void => {
-    setAr([...ar, { id: ++fakeId, title: `${title}` }])
+    addProjectAction({ id: ++Id, title: `${title}` })
     toggle()
   }
-
-  const projects = ar.map(proj => <ProjectItem
-    key={proj.id}
-    num={++fakeId}
-    title={proj.title}
-  />)
 
   return (
     <div className="projects">
