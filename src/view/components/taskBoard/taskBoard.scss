@@ -1,12 +1,52 @@
 .task-board {
-  display: grid;
-  grid-template-rows: 12vh 8vh 80vh;
   width: 80vw;
   margin: auto;
 
   &-link {
     text-decoration: none;
     color: inherit;
-    text-align: center;
+
+    &-title {
+      // border: 1px solid black;
+      text-align: center;
+    }
+  }
+
+  &__addtask {
+    margin: 1rem 0;
+    border-radius: 25px;
+    width: 20rem;
+    height: auto;
+    background-color: rgba(47, 73, 240, 0.201);
+
+    &-descr {
+      font-size: 2rem;
+      padding: .5rem 2rem;
+    }
+
+    &:hover {
+      background-color: rgba(47, 73, 240, 0.509);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: rgba(47, 73, 240, 0.765);
+    }
+  }
+}
+
+.tb-modal {
+  &-input {
+    margin: 2rem 1rem;
+    width: 40rem;
+    height: 5rem;
+    border: 1px solid rgba(153, 152, 152, 0.648);
+    padding: 1rem;
+  }
+
+  &-button {
+    margin: 25rem 32rem;
+    width: 40rem;
+    height: 5rem;
   }
 }

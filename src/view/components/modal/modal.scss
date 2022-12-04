@@ -9,17 +9,10 @@
 
 .modal {
   position: absolute;
-  display: grid;
-  grid-template-rows: 10rem 5rem;
   background-color: white;
   border-radius: 20px;
-  left: 12.5%;
-  top: 12.5%;
-  width: 75vw;
-  height: 75vh;
-}
-
-.mod-input {
-  width: 50%;
-  margin: auto;
+  top: 16vh;
+  left: 32vh;
+  right: 32vh;
+  bottom: 16vh;
 }

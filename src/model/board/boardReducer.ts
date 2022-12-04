@@ -37,17 +37,11 @@ const initialState = {
 
 export const boardReducer = (state = initialState, action: BoardAction): BoardState => {
   switch (action.type) {
-    case BoardActionType.FETCH_BOARD:
-      return { loading: true, error: null, boards: [] }
-
-    case BoardActionType.FETCH_BOARD_SUCCESS:
-      return { loading: false, error: null, boards: action.payload }
-
-    case BoardActionType.FETCH_BOARD_ERROR:
-      return { loading: false, error: action.payload, boards: [] }
-
     case BoardActionType.ADD_TASK:
-      return { loading: false, error: null, boards: [] }
+      return {
+        ...state,
+        // boards: state.boards.tasks.concat(action.payload)
+      }
 
     case BoardActionType.REMOVE_BOARD:
       return { loading: false, error: null, boards: [] }

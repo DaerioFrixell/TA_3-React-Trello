@@ -5,11 +5,6 @@ import { Modal } from "../../components/modal/Modal"
 import { ProjectItem } from "./projectItem/ProjectItem"
 import "./projects.scss"
 
-// type Project = {
-//   number: number,
-//   title: string
-// }
-
 export const Projects: React.FC = () => {
   const { isOpen, toggle } = useModal();
   const { project } = useTypedSelector(state => state.project)
@@ -33,8 +28,10 @@ export const Projects: React.FC = () => {
       <h1 className="title">Выберете проект</h1>
 
       <Modal isOpen={isOpen} toggle={toggle} create={create} >
-        <input className="mod-input" type="text" placeholder="title" />
-        <button className="mod-but" onClick={() => create()}>create</button>
+        <div className="projects-modal">
+          <input className="projects-modal-input" type="text" placeholder="title" />
+          <button className="projects-modal-button" onClick={() => create()}>create</button>
+        </div>
       </Modal>
 
       <div className="projects__all-project">
