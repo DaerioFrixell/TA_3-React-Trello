@@ -4,7 +4,7 @@ import { BoardItem } from "./boardItem/BoardItem"
 import "./boardList.scss"
 
 export const BoardList: React.FC = () => {
-  const { boards } = useTypedSelector(state => state.board)
+  const { boards } = useTypedSelector(state => state.taskBoard)
   const viewAllBoards = ((boards as Board[]).map(board =>
     <div
       className="bl__board"

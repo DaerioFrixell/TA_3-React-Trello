@@ -5,8 +5,9 @@ import { TaskItem } from "./taskItem/taskItem"
 import { Reorder } from "framer-motion"
 import "./boardItem.scss"
 
-export const BoardItem: React.FC<Board> = ({ id, tasks, title }) => {
+export const BoardItem: React.FC<Board> = ({ tasks, title }) => {
   const [allTasks, setAllTasks] = React.useState(tasks)
+
   const viewAllTasks = (allTasks.length)
     ? allTasks.map((t) =>
       <Reorder.Item
