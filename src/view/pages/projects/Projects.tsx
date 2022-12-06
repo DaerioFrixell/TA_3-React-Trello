@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useAction } from "../../../hooks/useAction"
 import useModal from "../../../hooks/useModal"
 import { useTypedSelector } from "../../../hooks/useTypedSelector"
@@ -6,6 +7,7 @@ import { ProjectItem } from "./projectItem/ProjectItem"
 import "./projects.scss"
 
 export const Projects: React.FC = () => {
+  const [titleProj, setTitleProj] = useState("qwe")
   const { isOpen, toggle } = useModal();
   const { project } = useTypedSelector(state => state.project)
   const { addProjectAction } = useAction()
@@ -16,21 +18,31 @@ export const Projects: React.FC = () => {
       key={proj.id}
       num={++Id}
       title={proj.title} />)
-    : <p>создайте проект</p>
+    : ""
 
-  const create = (title: string = "newProj"): void => {
-    addProjectAction({ id: ++Id, title: `${title}` })
+  const createProj = (title: string = titleProj) => {
+    addProjectAction({ id: ++Id, title: title })
     toggle()
+  }
+
+  const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.currentTarget.value
+    setTitleProj(newValue)
   }
 
   return (
     <div className="projects">
       <h1 className="title">Выберете проект</h1>
 
-      <Modal isOpen={isOpen} toggle={toggle} create={create} >
+      <Modal isOpen={isOpen} toggle={toggle} create={createProj} >
         <div className="projects-modal">
-          <input className="projects-modal-input" type="text" placeholder="title" />
-          <button className="projects-modal-button" onClick={() => create()}>create</button>
+          <input
+            className="projects-modal-input"
+            type="text"
+            placeholder="title"
+            onChange={handlerChange}
+          />
+          <button className="projects-modal-button" onClick={() => createProj()}>create</button>
         </div>
       </Modal>
 

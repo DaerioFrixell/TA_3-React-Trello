@@ -13,7 +13,7 @@ export const ProjectItem: React.FC<ProjectNum> = (props: ProjectNum) => {
         <Link
           className="project-item-link"
           to="/project">
-          <p className="project-item-title">{props.title} {props.num}</p>
+          <p className="project-item-title">{props.num}. {props.title} </p>
         </Link>
       </div>
     </>
