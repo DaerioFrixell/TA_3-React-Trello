@@ -1,7 +1,10 @@
 import { useState } from "react"
+import { useEffect, useRef } from "react"
+import { localStorageWrapper } from "../../../core/localStorage"
 import { useAction } from "../../../hooks/useAction"
 import useModal from "../../../hooks/useModal"
 import { useTypedSelector } from "../../../hooks/useTypedSelector"
+import { InitStateType, ProjType } from "../../../model/project/projectTypes"
 import { Modal } from "../../components/modal/Modal"
 import { ProjectItem } from "./projectItem/ProjectItem"
 import "./projects.scss"
@@ -11,10 +14,23 @@ export const Projects: React.FC = () => {
   const { isOpen, toggle } = useModal();
   const { project } = useTypedSelector(state => state.project)
   const { addProjectAction } = useAction()
-  let Id = 0;
+  const isMounted = useRef(false)
 
-  const projects = (project.length)
-    ? project.map(proj => <ProjectItem
+  useEffect(() => {
+    if (isMounted.current) {
+      const projJson = JSON.stringify(project)
+      localStorageWrapper.set("projects", projJson)
+    }
+
+    isMounted.current = true
+  }, [project])
+
+  const projectsData: string | undefined = localStorageWrapper.get("projects")
+  const projectsDataParse: ProjType[] = projectsData ? JSON.parse(projectsData) : []
+
+  let Id = 0;
+  const projects = (projectsDataParse.length)
+    ? projectsDataParse.map(proj => <ProjectItem
       key={proj.id}
       num={++Id}
       title={proj.title} />)

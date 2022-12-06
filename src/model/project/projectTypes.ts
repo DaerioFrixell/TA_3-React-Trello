@@ -4,7 +4,7 @@ export type ProjType = {
 }
 
 export type InitStateType = {
-  project: Array<ProjType>
+  project: ProjType[]
 }
 
 export enum ProjActionType {
