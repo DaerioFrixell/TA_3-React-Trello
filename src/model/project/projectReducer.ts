@@ -12,6 +12,13 @@ export const projectReducer = (
       ...state,
       project: state.project.concat(action.payload)
     }
+
+    case ProjActionType.REMOVE_PROJECT:
+      return {
+        ...state,
+        project: state.project.filter(pr => action.payload != pr.id)
+      }
+
     default: return state
   }
 }

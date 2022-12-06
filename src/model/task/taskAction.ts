@@ -6,3 +6,10 @@ export const addTaskAction = (task: Task) => {
     payload: task
   }
 }
+
+export const removeTaskAction = (id: string) => {
+  return {
+    type: TaskActionType.REMOVE_TASK,
+    payload: id
+  }
+}

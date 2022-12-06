@@ -1,12 +1,19 @@
+import { useEffect, memo } from "react"
 import { Link } from "react-router-dom"
+import { useAction } from "../../../../hooks/useAction"
 import "./projectItem.scss"
 
 type ProjectNum = {
+  id: string
   num: number
   title: string
 }
 
-export const ProjectItem: React.FC<ProjectNum> = (props: ProjectNum) => {
+export const ProjectItem: React.FC<ProjectNum> = memo((props: ProjectNum) => {
+  const { removeProjectAction } = useAction();
+  const removeProj = (id: string) => {
+    removeProjectAction(id)
+  }
   return (
     <>
       <div className="project-item">
@@ -15,7 +22,8 @@ export const ProjectItem: React.FC<ProjectNum> = (props: ProjectNum) => {
           to="/project">
           <p className="project-item-title">{props.num}. {props.title} </p>
         </Link>
+        <button className="project-item-rembut" onClick={() => removeProj(props.id)}>delete project</button>
       </div>
     </>
   )
-}
+})

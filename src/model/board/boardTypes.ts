@@ -18,7 +18,8 @@ export enum BoardActionType {
   FETCH_BOARD_SUCCESS = "FETCH_BOARD_SUCCESS",
   FETCH_BOARD_ERROR = "FETCH_BOARD_ERROR",
   ADD_BOARD = "ADD_BOARD",
-  REMOVE_BOARD = "REMOVE_BOARD"
+  REMOVE_BOARD = "REMOVE_BOARD",
+  REORDER_TASK = "REORDER_TASK"
 }
 
 export type FetchBoardAction = {
@@ -40,8 +41,8 @@ export type AddBoardAction = {
   payload: Task[]
 }
 
-export type RemoveBoardAction = {
-  type: BoardActionType.REMOVE_BOARD
+export type UploadBoardAction = {
+  type: BoardActionType.REORDER_TASK
   payload: Task[]
 }
 
@@ -52,4 +53,4 @@ export type BoardAction =
   | AddBoardAction
   | AddTaskAction
   | RemoveTaskAction
-  | RemoveBoardAction
+  | UploadBoardAction

@@ -1,5 +1,5 @@
 export type Task = {
-  id: number
+  id: string
   numberTask: number
   title: string
   description: string
@@ -21,7 +21,7 @@ export type AddTaskAction = {
 }
 export type RemoveTaskAction = {
   type: TaskActionType.REMOVE_TASK
-  payload: Task[]
+  payload: string
 }
 
 

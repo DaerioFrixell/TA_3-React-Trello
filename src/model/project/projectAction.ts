@@ -7,3 +7,10 @@ export const addProjectAction = (proj: ProjType) => {
     payload: proj
   }
 }
+
+export const removeProjectAction = (num: string) => {
+  return {
+    type: ProjActionType.REMOVE_PROJECT,
+    payload: num
+  }
+}

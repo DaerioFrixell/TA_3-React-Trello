@@ -1,18 +1,26 @@
 
 import { Board } from "../../../../../model/board/boardTypes"
-import React from "react"
+import React, { useEffect, useState, FC } from "react"
 import { TaskItem } from "./taskItem/taskItem"
 import { Reorder } from "framer-motion"
 import "./boardItem.scss"
+import { useTypedSelector } from "../../../../../hooks/useTypedSelector"
+import { Task } from "../../../../../model/task/tasksType"
+import nextId from "react-id-generator";
 
-export const BoardItem: React.FC<Board> = ({ tasks, title }) => {
-  const [allTasks, setAllTasks] = React.useState(tasks)
+type TasksListType = {
+  indexBoard: number
+}
 
+export const TasksList: FC<TasksListType> = ({ indexBoard }) => {
+  const allTasks = useTypedSelector(state => state.taskBoard.boards[indexBoard].tasks)
+  // console.log(allTasks)
+  let numTask = 0;
   const viewAllTasks = (allTasks.length)
-    ? allTasks.map((t) =>
+    ? allTasks.map((t, index) =>
       <Reorder.Item
         value={t}
-        key={t.id}
+        key={nextId()}
         initial={{}}
         animate={{}}
         exit={{}}
@@ -20,7 +28,7 @@ export const BoardItem: React.FC<Board> = ({ tasks, title }) => {
         <TaskItem
           key={t.id}
           id={t.id}
-          numberTask={t.numberTask}
+          numberTask={++numTask}
           title={t.title}
           description={t.description}
           createDate={t.createDate}
@@ -32,13 +40,17 @@ export const BoardItem: React.FC<Board> = ({ tasks, title }) => {
       </Reorder.Item>)
     : <p>no tasks</p>
 
+  const setAllTasks = (newOrder: Task[]) => { }
   return (
+    // <>asd</>
+    // <>{viewAllTasks}</>
+
     <Reorder.Group as="div"
       axis={"y"}
       className="board-item"
       values={allTasks}
       onReorder={setAllTasks}>
-      <p className="board-item-title">{title}</p>
+      <p className="board-item-title">{ }</p>
       {viewAllTasks}
     </Reorder.Group>
   )

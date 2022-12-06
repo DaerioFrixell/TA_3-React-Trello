@@ -1,43 +1,32 @@
-import { useState } from "react"
-import { useEffect, useRef } from "react"
-import { localStorageWrapper } from "../../../core/localStorage"
+import { useState, memo, useMemo } from "react"
 import { useAction } from "../../../hooks/useAction"
 import useModal from "../../../hooks/useModal"
 import { useTypedSelector } from "../../../hooks/useTypedSelector"
-import { InitStateType, ProjType } from "../../../model/project/projectTypes"
 import { Modal } from "../../components/modal/Modal"
 import { ProjectItem } from "./projectItem/ProjectItem"
+import nextId from "react-id-generator";
 import "./projects.scss"
 
-export const Projects: React.FC = () => {
-  const [titleProj, setTitleProj] = useState("qwe")
+export const Projects: React.FC = memo(() => {
+  const [titleProj, setTitleProj] = useState("")
   const { isOpen, toggle } = useModal();
   const { project } = useTypedSelector(state => state.project)
   const { addProjectAction } = useAction()
-  const isMounted = useRef(false)
-
-  useEffect(() => {
-    if (isMounted.current) {
-      const projJson = JSON.stringify(project)
-      localStorageWrapper.set("projects", projJson)
-    }
-
-    isMounted.current = true
-  }, [project])
-
-  const projectsData: string | undefined = localStorageWrapper.get("projects")
-  const projectsDataParse: ProjType[] = projectsData ? JSON.parse(projectsData) : []
 
   let Id = 0;
-  const projects = (projectsDataParse.length)
-    ? projectsDataParse.map(proj => <ProjectItem
-      key={proj.id}
-      num={++Id}
-      title={proj.title} />)
-    : ""
+  const projects = useMemo(() => {
+    return (project.length)
+      ? project.map(proj =>
+        <ProjectItem
+          key={proj.id}
+          id={proj.id}
+          num={++Id}
+          title={proj.title} />)
+      : "";
+  }, [project])
 
   const createProj = (title: string = titleProj) => {
-    addProjectAction({ id: ++Id, title: title })
+    addProjectAction({ id: nextId(), title: title })
     toggle()
   }
 
@@ -73,4 +62,4 @@ export const Projects: React.FC = () => {
       </div>
     </div>
   )
-}
+})

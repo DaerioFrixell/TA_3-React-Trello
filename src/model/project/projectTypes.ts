@@ -1,5 +1,5 @@
 export type ProjType = {
-  id: number,
+  id: string,
   title: string
 }
 
@@ -8,13 +8,20 @@ export type InitStateType = {
 }
 
 export enum ProjActionType {
-  ADD_PROJECT = "ADD_PROJECT"
+  ADD_PROJECT = "ADD_PROJECT",
+  REMOVE_PROJECT = "REMOVE_PROJECT"
 }
 
 export type AddProjActionType = {
   type: ProjActionType.ADD_PROJECT
-  payload: any
+  payload: ProjType
+}
+
+export type RemoveProjActionType = {
+  type: ProjActionType.REMOVE_PROJECT
+  payload: string
 }
 
 export type ProjAction =
   AddProjActionType
+  | RemoveProjActionType

@@ -19,6 +19,24 @@
       color: $active ;
     }
   }
+
+  &-rembut {
+    margin: 0 30%;
+    width: 40%;
+    height: 3rem;
+    font-size: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 6px;
+    background-color: rgba(47, 73, 240, 0.201);
+
+    &:hover {
+      background-color: $hover;
+    }
+
+    &:active {
+      background-color: $active ;
+    }
+  }
 }
 
 .project-item-link {
