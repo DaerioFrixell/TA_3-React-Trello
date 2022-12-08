@@ -1,3 +1,5 @@
+@import "../../../styles/screenSize.scss";
+
 .bl {
   display: flex;
   justify-content: space-between;
@@ -7,5 +9,15 @@
     height: 75vh;
     border: 2px solid black;
     border-radius: 10px;
+  }
+}
+
+@media (max-width: $bigMobWidth) {
+  .bl {
+    &__board {
+      width: 29vw;
+      height: 75vh;
+      border-radius: 10px;
+    }
   }
 }

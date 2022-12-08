@@ -1,4 +1,4 @@
-import { useEffect, memo } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { useAction } from "../../../../hooks/useAction"
 import "./projectItem.scss"
@@ -9,7 +9,7 @@ type ProjectNum = {
   title: string
 }
 
-export const ProjectItem: React.FC<ProjectNum> = memo((props: ProjectNum) => {
+export const ProjectItem: React.FC<ProjectNum> = React.memo((props: ProjectNum) => {
   const { removeProjectAction } = useAction();
   const removeProj = (id: string) => {
     removeProjectAction(id)

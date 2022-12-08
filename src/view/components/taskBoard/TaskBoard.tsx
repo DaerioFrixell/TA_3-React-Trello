@@ -73,7 +73,8 @@ export const TaskBoard = () => {
           />
           <select
             value="priority"
-            onChange={selectChange}>
+            onChange={selectChange}
+            className="tb-modal-input">
             <option value="priority" defaultValue={"change priority"} selected disabled={true}></option>
             <option value="low">low</option>
             <option value="middle" >middle</option>

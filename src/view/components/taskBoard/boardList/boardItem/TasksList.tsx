@@ -1,9 +1,7 @@
-
-import { Board } from "../../../../../model/board/boardTypes"
 import React, { useEffect, useState, FC } from "react"
 import { TaskItem } from "./taskItem/taskItem"
 import { Reorder } from "framer-motion"
-import "./boardItem.scss"
+import "./tasksList.scss"
 import { useTypedSelector } from "../../../../../hooks/useTypedSelector"
 import { Task } from "../../../../../model/task/tasksType"
 import nextId from "react-id-generator";
@@ -14,10 +12,10 @@ type TasksListType = {
 
 export const TasksList: FC<TasksListType> = ({ indexBoard }) => {
   const allTasks = useTypedSelector(state => state.taskBoard.boards[indexBoard].tasks)
-  // console.log(allTasks)
+
   let numTask = 0;
   const viewAllTasks = (allTasks.length)
-    ? allTasks.map((t, index) =>
+    ? allTasks.map(t =>
       <Reorder.Item
         value={t}
         key={nextId()}
@@ -42,15 +40,11 @@ export const TasksList: FC<TasksListType> = ({ indexBoard }) => {
 
   const setAllTasks = (newOrder: Task[]) => { }
   return (
-    // <>asd</>
-    // <>{viewAllTasks}</>
-
     <Reorder.Group as="div"
       axis={"y"}
       className="board-item"
       values={allTasks}
       onReorder={setAllTasks}>
-      <p className="board-item-title">{ }</p>
       {viewAllTasks}
     </Reorder.Group>
   )

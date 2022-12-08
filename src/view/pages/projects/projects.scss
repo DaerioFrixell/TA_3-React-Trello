@@ -1,4 +1,5 @@
 @import '../../styles/colors.scss';
+@import "../../styles/screenSize.scss";
 
 .projects {
   &__all-project {
@@ -39,5 +40,43 @@
     margin: 2rem 1rem;
     width: 40rem;
     height: 5rem;
+  }
+}
+
+@media (max-width: $bigMobWidth) {
+  .projects {
+    max-width: $bigMobWidth;
+
+    &__all-project {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-button {
+        font-size: 1.5rem;
+        width: 70%;
+        margin: 5vh 4vw;
+        height: 2.5rem;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $bigMobWidth) {
+  .projects-modal {
+    margin: auto;
+
+    &-input {
+      margin: 2rem 15vw;
+      padding: 1rem;
+      width: 50vw;
+      height: 5rem;
+    }
+
+    &-button {
+      margin: 2rem 15vw;
+      width: 50vw;
+      height: 5rem;
+    }
   }
 }

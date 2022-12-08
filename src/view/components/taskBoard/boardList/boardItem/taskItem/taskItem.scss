@@ -1,4 +1,5 @@
 @import '../../../../../styles/colors.scss';
+@import '../../../../../styles/screenSize.scss';
 
 .task-item {
   display: flex;
@@ -77,5 +78,64 @@
     position: absolute;
     bottom: 15px;
   }
+}
 
+
+@media (max-width: $bigMobWidth) {
+  .task-item {
+    width: 25vw;
+    margin: 1rem auto;
+
+    &-title {
+      margin: auto 0;
+      font-size: 1.2rem;
+    }
+
+    &-number {
+      font-size: 1.4rem;
+      margin: auto .5rem;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .modal-ti {
+    width: 90%;
+
+    &__header {
+      grid-template-columns: repeat(2, 33.33%) repeat(2, 16.66%);
+      height: 8vh;
+
+      &-createdata {
+        font-size: 1rem;
+        margin: auto;
+      }
+
+      &-title {
+        font-weight: bold;
+        font-size: 2rem;
+        margin: auto;
+      }
+
+      &-status {
+        font-size: 1.2rem;
+        margin: auto;
+      }
+
+      &-priority {
+        font-size: 1.2rem;
+        margin: auto;
+      }
+    }
+
+    &-description {
+      margin-top: 5rem;
+      font-size: 1.8rem;
+    }
+
+    &-duaring {
+      position: absolute;
+      bottom: 15px;
+    }
+  }
 }

@@ -1,0 +1,23 @@
+@import "../../../../styles/screenSize.scss";
+
+.board-item {
+  width: 95%;
+  margin: auto;
+  list-style: none;
+
+  &-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: $bigMobWidth) {
+  .board-item {
+    &-title {
+      font-weight: bold;
+      font-size: 1rem;
+      color: red;
+      margin-bottom: 1rem;
+    }
+  }
+}
